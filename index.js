@@ -8,7 +8,22 @@ const dates = [
 ];
 
 // TODO: Buatlah fungsi createDate
-const createDate = null;
+const createDate = (dates, pos = null) => {
+  const MULTIPLIER_TO_MILISECOND_TO_SECOND = 0.001;
+  const outuput = [];
+
+  if (pos === null) {
+    for (let date of dates) {
+      outuput.push(Date.parse(date) * MULTIPLIER_TO_MILISECOND_TO_SECOND);
+    }
+
+    return outuput.sort((a, b) => a - b).join("-");
+  }
+
+  return (
+    Date.parse(dates[pos]) * MULTIPLIER_TO_MILISECOND_TO_SECOND
+  ).toString();
+};
 
 // ! JANGAN DIMODIFIKASI
 (() => {
